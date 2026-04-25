@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "JanSahayak AI",
+  "version": "1.0.0",
+  "description": "AI Voice Assistant for Indian Government Services",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Open JanSahayak AI"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["src/content.jsx"],
+      "css": ["src/content.css"]
+    }
+  ]
+}
